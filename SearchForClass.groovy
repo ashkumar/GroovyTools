@@ -13,8 +13,6 @@ File dir = new File("${args[0]}")
 
 def className = "${args[1]}";
 def matchString
-def innerClassMatchString
-def isPackage = true;
 
 
 //If className contains a . then this is a full package name - must be handled differently
@@ -22,7 +20,6 @@ if (className.contains(".")){
 	def packageName = className.replaceAll('\\.', '/');
 	matchString = packageName + ".class"+ "\$"
 } else {
-	isPackage = false
 	matchString = "[\\/\$]" + className + ".class"+ "\$"
 }
 
